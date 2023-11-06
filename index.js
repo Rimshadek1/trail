@@ -11,11 +11,11 @@ const db = require('./config/connection');
 
 
 const app = express();
-// app.use(cors({
-//     origin: ['http://localhost:4001'],
-//     methods: ['GET', 'POST', 'DELETE'],
-//     credentials: true
-// }));
+app.use(cors({
+    origin: ['https://verseltrail.vercel.app'],
+    methods: ['GET', 'POST', 'DELETE'],
+    credentials: true
+}));
 // app.use('/public', express.static(__dirname + '/public'));
 
 // app.use(logger('dev'));
@@ -40,7 +40,8 @@ app.get('*', function (req, res) {
         }
 });
 app.get('/api/test', (req, res) => {
-    res.send('test')
+
+    res.json({ status: 'success' })
 })
 
 // catch 404 and forward to error handler
